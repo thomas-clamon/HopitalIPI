@@ -1,6 +1,11 @@
 package com.ipi.hopital;
 
+import com.ipi.hopital.dto.EtudientDto;
+import org.springframework.cglib.core.Local;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @RestController
 @RequestMapping("exemple")
@@ -25,4 +30,23 @@ public class Ressources {
     public int exemple(){
         return 1+1;
      }
+
+
+     @PostMapping("Somme")
+     public Integer sum(@RequestBody List<Integer> list) {
+        int result = 0;
+        for (int i = 0;i<list.size(); i++) {
+            result = result + list.get(i);
+         }
+        return result;
+     }
+
+     @GetMapping("afficher")
+    public EtudientDto afficher() {
+        EtudientDto etudiantDto = new EtudientDto("Thomas",
+                "Clamont",
+                LocalDate.of(1990,11,03));
+    return etudiantDto;
+    }
+
 }
