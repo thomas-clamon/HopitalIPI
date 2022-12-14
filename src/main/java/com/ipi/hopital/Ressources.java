@@ -34,4 +34,9 @@ public class Ressources {
     public EtudiantDTO afficher(){
         return new EtudiantDTO("Lagarde", "Samuel", LocalDate.of(2003, 11, 2));
      }
+
+     @PostMapping("afficherAge")
+    public int afficherAge(@RequestBody EtudiantDTO etudiantDTO){
+        return LocalDate.now().getYear() - etudiantDTO.getDateNaissance().getYear();
+     }
 }

@@ -15,6 +15,10 @@ public class EtudiantDTO {
         this.dateNaissance = dateNaissance;
     }
 
+    public int calculerAge(){
+        return LocalDate.now().getYear() - dateNaissance.getYear();
+    }
+
     public String getNom() {
         return nom;
     }
