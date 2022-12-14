@@ -1,31 +1,22 @@
 package com.ipi.hopital.dto;
 
+import org.springframework.cglib.core.Local;
+
 import java.time.LocalDate;
-import java.time.Period;
 
-public class EtudiantDto {
-
-    private String prenom;
+public class EtudiantDTO {
     private String nom;
-    private LocalDate date_naisse;
+    private String prenom;
+    private LocalDate dateNaissance;
 
-    public EtudiantDto(String prenom, String nom, LocalDate date_naisse) {
-        this.prenom = prenom;
+    public EtudiantDTO(String nom, String prenom, LocalDate dateNaissance) {
         this.nom = nom;
-        this.date_naisse = date_naisse;
-    }
-
-    public int CalculerAge()
-    {
-        return Period.between(date_naisse, LocalDate.now()).getYears();
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public void setPrenom(String prenom) {
         this.prenom = prenom;
+        this.dateNaissance = dateNaissance;
+    }
+
+    public int calculerAge(){
+        return LocalDate.now().getYear() - dateNaissance.getYear();
     }
 
     public String getNom() {
@@ -36,11 +27,19 @@ public class EtudiantDto {
         this.nom = nom;
     }
 
-    public LocalDate getDate_naisse() {
-        return date_naisse;
+    public String getPrenom() {
+        return prenom;
     }
 
-    public void setDate_naisse(LocalDate date_naisse) {
-        this.date_naisse = date_naisse;
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public LocalDate getDateNaissance() {
+        return dateNaissance;
+    }
+
+    public void setDateNaissance(LocalDate dateNaissance) {
+        this.dateNaissance = dateNaissance;
     }
 }
