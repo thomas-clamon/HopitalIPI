@@ -23,6 +23,6 @@ public class Ressources {
 
      @GetMapping("test")
     public int exemple(){
-        return 1+1;
+        return 1+123;
      }
 }
