@@ -1,4 +1,4 @@
-package com.ipi.hopital.dto;
+package com.ipi.hopital.DTO;
 
 public class EtudiantAgeDto
 {

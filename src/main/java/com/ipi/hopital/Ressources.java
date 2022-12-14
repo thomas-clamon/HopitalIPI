@@ -1,7 +1,7 @@
 package com.ipi.hopital;
 
-import com.ipi.hopital.dto.EtudiantAgeDto;
-import com.ipi.hopital.dto.EtudiantDto;
+import com.ipi.hopital.DTO.EtudiantAgeDto;
+import com.ipi.hopital.DTO.EtudiantDto;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
