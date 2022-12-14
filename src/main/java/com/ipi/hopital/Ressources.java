@@ -1,9 +1,13 @@
 package com.ipi.hopital;
 
+import com.ipi.hopital.dto.EtudiantDTO;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.util.List;
+
 @RestController
-@RequestMapping("exemple")
+@RequestMapping("api")
 public class Ressources {
 
     @GetMapping("hello")
@@ -21,8 +25,13 @@ public class Ressources {
         return String.format("je m'appelle %s %s", nom, prenom);
      }
 
-     @GetMapping("test")
-    public int exemple(){
-        return 1+123;
+     @PostMapping("sum")
+    public int sum(@RequestBody List<Integer> numbers) {
+         return numbers.stream().mapToInt(Integer::intValue).sum();
+     }
+
+     @GetMapping("afficher")
+    public EtudiantDTO afficher(){
+        return new EtudiantDTO("Lagarde", "Samuel", LocalDate.of(2003, 11, 2));
      }
 }
